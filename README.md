@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/7d88f309-f0df-4c01-ad75-3e9016ffebca)# 📘 Git Labs – Hands-On Learning Series
+📘 Git Labs – Hands-On Learning Series
 
 Welcome to the **Git Labs** section of this DevOps Labs repository!
 
