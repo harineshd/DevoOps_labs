@@ -34,6 +34,7 @@ docker --version
 Expected Output:
 
 Docker version 28.x.x
+<img width="872" height="78" alt="image" src="https://github.com/user-attachments/assets/c501915c-da05-4f5b-8c0c-062388dccab0" />
 
 In this lab we will connect Docker CLI to Docker Hub and create repositories that will later store Docker images.
 
@@ -54,7 +55,7 @@ Expected Result:
 
 Login Succeeded
 
-Screenshot:
+<img width="1429" height="308" alt="image" src="https://github.com/user-attachments/assets/1ff0dfd6-6a4f-4984-bec4-87c0bcd45834" />
 
 
 Step 2: Verify Authentication
@@ -112,6 +113,10 @@ Repository URL:
 
 https://hub.docker.com/r/<username>/docker-hub-lab-public
 
+
+<img width="1364" height="942" alt="image" src="https://github.com/user-attachments/assets/10606dda-260b-4e06-a3c3-82533135d40b" />
+
+
 Step 4 : Create Private Repository
 
 Click:
@@ -134,53 +139,9 @@ Expected Result:
 
 Private repository created successfully.
 
-Step 5:Configure Repository Permissions
-Navigate:
+<img width="1364" height="942" alt="image" src="https://github.com/user-attachments/assets/01e9f88f-8b5f-4024-b8d5-7d56b7c42bd4" />
 
-Settings
 
-→
-
-Collaborators
-
-Add collaborator:
-
-sampleuser
-
-Permission Options:
-
-Read
-
-Can:
-
-Pull Images
-View Repository
-
-Cannot:
-
-Push Images
-Write
-
-Can:
-
-Pull Images
-Push Images
-
-Cannot:
-
-Modify Repository Settings
-Admin
-
-Can:
-
-Pull Images
-Push Images
-Delete Images
-Manage Repository
-
-Expected Result:
-
-Permissions configured successfully.
 
 Expected Outputs
 After successful completion of this lab:
