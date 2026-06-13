@@ -1,21 +1,25 @@
 # Lab 01 - Kubernetes Cluster Setup Using KIND on Windows
 
-**Objective**
+#### Important Installation links:
+
+Documentation for [Kubectl Installation]([https://](https://kubernetes.io/docs/tasks/tools/))
+
+Documentation for Kind Cluster Installation https://kind.sigs.k8s.io/docs/user/quick-start/
+
+### Objective
 The objective of this lab is to install and configure a local Kubernetes cluster on Windows using KIND (Kubernetes IN Docker).
 
   By completing this lab, you will learn how to:
 
- - Install Docker Desktop
- - Install kubectl
+ -  Install kubectl
  - Install KIND
  - Create a Kubernetes cluster locally
  - Verify cluster components
  - Interact with the cluster using kubectl
- - Deploy a test application
- - Access Kubernetes resources
+ -  Access Kubernetes resources
  - Delete the cluster when finished
 
-**Prerequisites**
+### Prerequisites
 
 Before starting this lab, ensure you have:
 | Requirement              | Status      |
@@ -28,14 +32,14 @@ Before starting this lab, ensure you have:
 
 
 
-**Architecture**
+### Architecture
 
-![alt text](image.png)
+![alt text](image-2.png)
 
 
-**Installtion Steps:**
+## Installation Steps 
 
-#### Step 1 - Verify Docker Installation
+### Step 1 - Verify Docker Installation
 
 Open PowerShell or CMD.
 
@@ -45,7 +49,6 @@ Execute:
 
 Expected Result:
 
-Docker Client and Server information should be displayed.
 ![alt text](image-1.png)
 
 ### Step 2 - Verify Docker Desktop is Running
@@ -54,8 +57,9 @@ Check Docker status:
 
 docker ps
 
-Expected Result:
+Expected Result: shown some running containers
 
+![alt text](image-17.png)
 
 ### Step 3 - Install kubectl
 
@@ -68,6 +72,7 @@ Move kubectl.exe to a folder & Set as varibale  in PATH.
 Verify installation:
 
 `kubectl version --client`
+![alt text](image-18.png)
 
 ### Step 4 - Install KIND
 
@@ -79,4 +84,157 @@ Move kind.exe to a directory & Set as varibale  in PATH.
 
 Verify installation:
 
-kind version
+`kind version`
+![alt text](image-19.png)
+
+
+
+
+# Create Cluster Using Imperative Method
+
+### Step 1 -Create a cluster using the default KIND configuration.
+
+Execute:
+
+`kind create cluster --name myfirstcluster`
+
+Expected Result:
+![alt text](image-3.png)
+
+### Step 2 - Verify Cluster
+
+Check cluster information.
+
+`kubectl cluster-info`
+
+Expected Result:
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+### Step 3 - Verify Nodes
+
+Execute:
+
+`kubectl get nodes`
+`kubectl get node -o wide`
+
+Expected Result:
+![alt text](image-6.png)
+
+### Step 4 - Verify Kubernetes System Pods
+
+Execute:
+
+`kubectl get pods -A`
+
+Expected Result:
+![alt text](image-7.png)
+
+### Step 5 - Delete Imperative Cluster
+
+Execute:
+
+`kind delete cluster --name myfirstcluster`
+
+
+Expected Result:
+
+![alt text](image-8.png)
+
+![alt text](image-10.png)
+
+
+# Create Cluster Using Declarative Configuration
+
+### Step 1 - Create yaml configuration file:
+
+kind-cluster.yaml
+
+```yaml
+# kind-cluster-config.yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+
+# Specify the Kubernetes version by using a specific node image
+# Visit https://hub.docker.com/r/kindest/node/tags and https://github.com/kubernetes-sigs/kind/releases for available images
+nodes:
+  - role: control-plane
+    image: kindest/node:v1.31.4@sha256:2cb39f7295fe7eafee0842b1052a599a4fb0f8bcf3f83d96c7f4864c357c6c30 # Replace with the Kubernetes version you want
+  - role: worker
+    image: kindest/node:v1.31.4@sha256:2cb39f7295fe7eafee0842b1052a599a4fb0f8bcf3f83d96c7f4864c357c6c30
+  - role: worker
+    image: kindest/node:v1.31.4@sha256:2cb39f7295fe7eafee0842b1052a599a4fb0f8bcf3f83d96c7f4864c357c6c30
+```
+
+This configuration creates:
+
+1 Control Plane Node
+
+
+2 Worker Nodes
+
+### Step 2 - Create Cluster Using Configuration File
+
+Execute:
+
+`kind create cluster --name myfirstcluster --config kind-cluster.yamll`
+
+![alt text](image-11.png)
+
+![alt text](image-12.png)
+
+we can create one more cluster with different api version 
+
+create kind-cluster.yaml
+
+``` yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+
+nodes:
+  - role: control-plane
+
+  - role: worker
+
+  - role: worker```
+```
+
+Execute:
+
+`kind create cluster --name myfirstcluster --config kind-cluster.yaml`
+
+### Step 3 - Verify Multi-Node Cluster
+
+Execute:
+
+`kubectl get nodes`
+
+Expected Result:
+![alt text](image-13.png)
+
+![alt text](image-14.png)
+
+### Step 4 - Verify Docker Containers
+
+KIND creates Kubernetes nodes as Docker containers.
+
+Execute:
+
+`docker ps`
+
+Expected Result:
+![alt text](image-15.png)
+![alt text](image-16.png)
+
+### Step 5 - Delete Declarative Cluster
+
+Execute:
+
+`kind delete cluster --name myfirstcluster`
+
+
+
+**Lab Summary**
+
+In this lab, KIND and kubectl were successfully installed on Windows. A Kubernetes cluster was created using both imperative and declarative approaches. Cluster health, nodes, and Kubernetes system components were verified using kubectl commands. The underlying Docker containers representing Kubernetes nodes were also validated. Finally, the clusters were deleted, completing the full KIND cluster lifecycle management process.
