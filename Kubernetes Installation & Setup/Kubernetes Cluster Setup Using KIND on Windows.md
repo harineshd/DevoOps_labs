@@ -85,6 +85,7 @@ Move kind.exe to a directory & Set as varibale  in PATH.
 Verify installation:
 
 `kind version`
+
 ![alt text](image-19.png)
 
 
