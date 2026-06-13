@@ -230,7 +230,7 @@ Expected Result:
 
 ### Step 5 - Delete Declarative Cluster
 
-Execute:
+Execute: 
 
 `kind delete cluster --name myfirstcluster`
 
