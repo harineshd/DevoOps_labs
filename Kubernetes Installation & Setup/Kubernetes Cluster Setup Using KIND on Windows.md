@@ -1,13 +1,16 @@
 # Lab 01 - Kubernetes Cluster Setup Using KIND on Windows
 
+### Objective
+
+This lab demonstrates how to install kubectl and KIND on Windows and create Kubernetes clusters using both imperative and declarative approaches.
+
 #### Important Installation links:
 
-Documentation for [Kubectl Installation]([https://](https://kubernetes.io/docs/tasks/tools/))
+Documentation for [Kubectl Installation](https://kubernetes.io/docs/tasks/tools/)
 
-Documentation for Kind Cluster Installation https://kind.sigs.k8s.io/docs/user/quick-start/
+Documentation for [KIND Installation](https://kind.sigs.k8s.io/docs/user/quick-start/)
 
-### Objective
-The objective of this lab is to install and configure a local Kubernetes cluster on Windows using KIND (Kubernetes IN Docker).
+
 
   By completing this lab, you will learn how to:
 
@@ -32,9 +35,9 @@ Before starting this lab, ensure you have:
 
 
 
-### Architecture
+## Architecture
 
-![alt text](image-2.png)
+![Architecture](images/image-2.png)
 
 
 ## Installation Steps 
@@ -49,7 +52,7 @@ Execute:
 
 Expected Result:
 
-![alt text](image-1.png)
+![DockerVersion](images/image-1.png)
 
 ### Step 2 - Verify Docker Desktop is Running
 
@@ -57,9 +60,13 @@ Check Docker status:
 
 docker ps
 
-Expected Result: shown some running containers
+Expected Result:
 
-![alt text](image-17.png)
+Expected Result:
+
+Docker should display the list of running containers. If no containers are running, an empty list will be displayed.
+
+![Dockerstatus](images/image-17.png)
 
 ### Step 3 - Install kubectl
 
@@ -67,12 +74,12 @@ Download kubectl:
 
 `curl.exe -LO "https://dl.k8s.io/release/v1.34.0/bin/windows/amd64/kubectl.exe"`
 
-Move kubectl.exe to a folder & Set as varibale  in PATH.
-
+Move kubectl.exe to a directory included in the system PATH environment variable.
 Verify installation:
 
 `kubectl version --client`
-![alt text](image-18.png)
+
+![kubectlversion](images/image-18.png)
 
 ### Step 4 - Install KIND
 
@@ -86,7 +93,7 @@ Verify installation:
 
 `kind version`
 
-![alt text](image-19.png)
+![kindversion](images/image-19.png)
 
 
 
@@ -100,7 +107,7 @@ Execute:
 `kind create cluster --name myfirstcluster`
 
 Expected Result:
-![alt text](image-3.png)
+![abc](images/image-3.png)
 
 ### Step 2 - Verify Cluster
 
@@ -109,19 +116,21 @@ Check cluster information.
 `kubectl cluster-info`
 
 Expected Result:
-![alt text](image-4.png)
+![abc](images/image-4.png)
 
-![alt text](image-5.png)
+![abc](images/image-5.png)
 
 ### Step 3 - Verify Nodes
 
 Execute:
 
-`kubectl get nodes`
-`kubectl get node -o wide`
+```bash
+kubectl get nodes
+kubectl get nodes -o wide
+```
 
 Expected Result:
-![alt text](image-6.png)
+![abc](images/image-6.png)
 
 ### Step 4 - Verify Kubernetes System Pods
 
@@ -130,7 +139,7 @@ Execute:
 `kubectl get pods -A`
 
 Expected Result:
-![alt text](image-7.png)
+![abc](images/image-7.png)
 
 ### Step 5 - Delete Imperative Cluster
 
@@ -141,9 +150,9 @@ Execute:
 
 Expected Result:
 
-![alt text](image-8.png)
+![abc](images/image-8.png)
 
-![alt text](image-10.png)
+![abc](images/image-10.png)
 
 
 # Create Cluster Using Declarative Configuration
@@ -181,9 +190,9 @@ Execute:
 
 `kind create cluster --name myfirstcluster --config kind-cluster.yamll`
 
-![alt text](image-11.png)
+![abc](images/image-11.png)
 
-![alt text](image-12.png)
+![abc](images/image-12.png)
 
 we can create one more cluster with different api version 
 
@@ -212,9 +221,9 @@ Execute:
 `kubectl get nodes`
 
 Expected Result:
-![alt text](image-13.png)
+![abc](images/image-13.png)
 
-![alt text](image-14.png)
+![abc](images/image-14.png)
 
 ### Step 4 - Verify Docker Containers
 
@@ -225,8 +234,9 @@ Execute:
 `docker ps`
 
 Expected Result:
-![alt text](image-15.png)
-![alt text](image-16.png)
+![abc](images/image-15.png)
+
+![abc](images/image-16.png)
 
 ### Step 5 - Delete Declarative Cluster
 
