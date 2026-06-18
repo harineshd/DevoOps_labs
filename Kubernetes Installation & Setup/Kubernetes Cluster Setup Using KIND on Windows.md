@@ -1,5 +1,6 @@
 # Lab 01 - Kubernetes Cluster Setup Using KIND on Windows
 
+
 ### Objective
 
 This lab demonstrates how to install kubectl and KIND on Windows and create Kubernetes clusters using both imperative and declarative approaches.

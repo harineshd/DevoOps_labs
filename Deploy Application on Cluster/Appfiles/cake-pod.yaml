@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: cake-app
+
+spec:
+  containers:
+  - name: cake-container
+    image: cake-delivery:v1
+
+    imagePullPolicy: Never
+
+    ports:
+    - containerPort: 80
