@@ -28,12 +28,15 @@ kubectl get nodes
 ```
 Expected Output:
 
-NAME                               STATUS   ROLES
-my-first-cluster-control-plane     Ready    control-plane
-my-first-cluster-worker            Ready    <none>
-my-first-cluster-worker2           Ready    <none>
+|             NAME             |STATUS|    ROLES     |
+|------------------------------|------|--------------|
+|my-first-cluster-control-plane|Ready |control-plane |
+|   my-first-cluster-worker    |Ready |    none    |
+|   my-first-cluster-worker2   |Ready |    none    |
 
-![alt text](images\image-6.png)
+
+
+![k8snodes](images/image-6.png)
 
 ### Application Overview
 
@@ -69,7 +72,8 @@ Add the following content:
 Please fidn the HTMl file in Repo  : Appfiles/index.html
 
 Open the HTML in browser:
-![alt text](image.png)
+![alt text](images/image.png)
+
 
 
 ### Step 3 - Create Dockerfile
@@ -96,15 +100,15 @@ Build the Docker image:
 
 `docker build -t cake-delivery:v1 .`
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 Verify image:
 
 `docker images`
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 ### Step 5 - Load Docker Image into KIND Cluster
 
@@ -115,13 +119,13 @@ Execute:
 ```kind load docker-image cake-delivery:v1 --name my-first-cluster```
 
 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
 How to verify the image is loaded or not into containers
 
 `docker exec -it myfirstcluster-control-plane crictl images`
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 ### Step 6 - Create Pod Manifest
 
@@ -164,7 +168,7 @@ Deploy the Pod to Kubernetes:
 
 ```kubectl apply -f cake-pod.yaml```
 
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 
 ### Step 8 - Verify Pod Status
@@ -173,7 +177,7 @@ Check Pod status:
 
 ```kubectl get pods```
 
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 
 
 ### Step 9 - Verify Pod Placement
@@ -184,7 +188,7 @@ Check which node is running the Pod:
 
 The Kubernetes Scheduler automatically selected a worker node for the Pod.
 
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 
 
 ### Step 10 - Verify Container Inside Pod
@@ -200,7 +204,7 @@ Containers:
 
 Observation:
 
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 
 
 ### Step 11 - Access the Application
@@ -209,14 +213,14 @@ Forward local port to the Pod:
 
 ``` kubectl port-forward pod/cake-app 8080:80```
 
-![alt text](image-10.png)
+![alt text](images/image-10.png)
 
 
 Expected Result:
 
 The Cake Delivery application page should be displayed.
 
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 
 
 ### Step 12 - View Application Logs
@@ -229,7 +233,7 @@ Expected Result:
 
 Application logs displayed successfully.
 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
 
 ### Step 13 - Connect to the Container
 
@@ -246,7 +250,7 @@ Expected Output:
 
 index.html
 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 
 
 
