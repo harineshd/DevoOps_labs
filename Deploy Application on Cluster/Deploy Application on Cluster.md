@@ -1,10 +1,10 @@
-LAB 02: Build and Deploy an Online Cake Delivery Application on KIND Kubernetes Cluster
+# LAB 02: Build and Deploy an Online Cake Delivery Application on KIND Kubernetes Cluster
 
-Objective
+## Objective
 
 The objective of this lab is to build a simple web application, containerize it using Docker, and deploy it on a Kubernetes Pod running inside a KIND cluster.
 
-By completing this lab, you will learn how to:
+#### By completing this lab, you will learn how to:
 
 Create a simple web application
 Create a Dockerfile
@@ -15,7 +15,7 @@ Run a container inside a Pod
 Access the application running in Kubernetes
 Understand the relationship between Application, Container, Pod, Node, and Cluster
 
-Prerequisites
+##### Prerequisites
 
 Before starting this lab, ensure you have completed:
 
@@ -23,8 +23,9 @@ Lab 01 - KIND Cluster Setup
 
 Verify the cluster is running:
 
+```bash
 kubectl get nodes
-
+```
 Expected Output:
 
 NAME                               STATUS   ROLES
@@ -32,11 +33,9 @@ my-first-cluster-control-plane     Ready    control-plane
 my-first-cluster-worker            Ready    <none>
 my-first-cluster-worker2           Ready    <none>
 
-Architecture
+![alt text](images\image-6.png)
 
-![alt text](image-6.png)
-
-Application Overview
+### Application Overview
 
 In this lab, we will create a simple Online Cake Delivery application.
 
@@ -47,9 +46,9 @@ Show Available Cakes
 Demonstrate application deployment on Kubernetes
 
 
-STEPS TO SETUP THINGS
+## STEPS TO SETUP THINGS
 
-Step 1 - Create Application Directory
+### Step 1 - Create Application Directory
 
 Create a new folder:
 
@@ -59,7 +58,7 @@ cd cake-delivery-app
 
 Application workspace created successfully.
 
-Step 2 - Create Application File
+### Step 2 - Create Application File
 
 Create a file named:
 
@@ -73,7 +72,7 @@ Open the HTML in browser:
 ![alt text](image.png)
 
 
-Step 3 - Create Dockerfile
+### Step 3 - Create Dockerfile
 
 Create a file named:
 
@@ -91,7 +90,7 @@ Explanation:
 Uses NGINX as the web server
 Copies the application page into the NGINX web root
 
-Step 4 - Build Docker Image
+### Step 4 - Build Docker Image
 
 Build the Docker image:
 
@@ -107,7 +106,7 @@ Verify image:
 
 ![alt text](image-3.png)
 
-Step 5 - Load Docker Image into KIND Cluster
+### Step 5 - Load Docker Image into KIND Cluster
 
 Since KIND runs Kubernetes nodes as Docker containers, the image must be loaded into the cluster.
 
@@ -124,7 +123,7 @@ How to verify the image is loaded or not into containers
 
 ![alt text](image-5.png)
 
-Step 6 - Create Pod Manifest
+### Step 6 - Create Pod Manifest
 
 Create a file named:
 
@@ -159,8 +158,7 @@ Explanation:
 - Image	                   cake-delivery:v1
 - Container Port	       80
     
-   
-   Step 7 - Deploy the Pod
+### Step 7 - Deploy the Pod
 
 Deploy the Pod to Kubernetes:
 
@@ -169,7 +167,7 @@ Deploy the Pod to Kubernetes:
 ![alt text](image-6.png)
 
 
-Step 8 - Verify Pod Status
+### Step 8 - Verify Pod Status
 
 Check Pod status:
 
@@ -178,7 +176,7 @@ Check Pod status:
 ![alt text](image-7.png)
 
 
-Step 9 - Verify Pod Placement
+### Step 9 - Verify Pod Placement
 
 Check which node is running the Pod:
 
@@ -189,7 +187,7 @@ The Kubernetes Scheduler automatically selected a worker node for the Pod.
 ![alt text](image-8.png)
 
 
-Step 10 - Verify Container Inside Pod
+### Step 10 - Verify Container Inside Pod
 
 View Pod details:
 
@@ -205,7 +203,7 @@ Observation:
 ![alt text](image-9.png)
 
 
-Step 11 - Access the Application
+### Step 11 - Access the Application
 
 Forward local port to the Pod:
 
@@ -221,7 +219,7 @@ The Cake Delivery application page should be displayed.
 ![alt text](image-11.png)
 
 
-Step 12 - View Application Logs
+### Step 12 - View Application Logs
 
 Display Pod logs:
 
@@ -233,7 +231,7 @@ Application logs displayed successfully.
 
 ![alt text](image-12.png)
 
-Step 13 - Connect to the Container
+### Step 13 - Connect to the Container
 
 Open an interactive shell inside the container:
 
@@ -252,7 +250,7 @@ index.html
 
 
 
-Verification Checklist:
+### Verification Checklist:
 
 |Verification|   Item   |    Status     |
 |------------|----------|---------------|
@@ -269,7 +267,7 @@ Verification Checklist:
 
 
 
-Expected Outputs
+### Expected Outputs
 
 After successful completion of this lab:
 
@@ -282,6 +280,6 @@ The application was accessed through Kubernetes.
 The Pod lifecycle was validated.
 
 
-Lab Summary
+### Lab Summary
 
 In this lab, a simple Online Cake Delivery application was developed and containerized using Docker. The Docker image was loaded into the KIND Kubernetes cluster and deployed using a Pod manifest. Kubernetes scheduled the Pod on one of the worker nodes, and the application was successfully accessed using port forwarding. This lab demonstrated the complete workflow from application creation to deployment on Kubernetes, providing a foundational understanding of how applications are packaged, deployed, and executed within a Kubernetes environment.
