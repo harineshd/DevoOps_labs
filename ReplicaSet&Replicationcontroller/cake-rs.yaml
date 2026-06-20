@@ -1,0 +1,33 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+
+metadata:
+  name: cake-rs #Replciaset name
+  
+
+spec:
+  replicas: 4  # Number of Pods to be created
+
+  selector:    # Label selector. This is used to identify the Pods that belong to this ReplicaSet. The ReplicaSet will manage all Pods that match these labels.
+    matchLabels:
+      app: cake-app
+
+  template:    # Pod template. This is the template for the Pods that will be created by this ReplicaSet    metadata:
+      metadata:  # Pod Metadata
+        labels:
+          app: cake-app
+
+      spec:     # Pod Spec
+        containers:
+         - name: cake-container # Container name
+           image: cake-delivery:v1 # Container image. This is the image that will be used to create the container. The image should be available in the container registry. If the image is not available, the Pod will fail to start.
+
+           imagePullPolicy: Never # Image pull policy. This is used to specify when the image should be pulled. The possible values are:
+
+           ports: #  Container ports. This is used to specify the ports that the container will listen on. The container will listen on these ports and will be accessible through these ports.
+            - containerPort: 80
+
+  
+
+
+
