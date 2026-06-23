@@ -2,7 +2,7 @@
 
 ## Objective
 
-The objective of this lab is to understand how Kubernetes uses Labels, Selectors, and Annotations to organize, identify, and manage resources.
+The objective of this lab is to understand how Kubernetes uses Labels, Selectors, and Annotations to organize, identify, and manage resources
 
 ### By completing this lab, you will learn how to:
 Create Labels
@@ -241,7 +241,7 @@ Verify:
 Expected Output:
 
 cake-app Running
-![alt text](images\image.png)
+![alt text](images/image.png)
 
 
 Troubelshoot:
@@ -249,7 +249,7 @@ Troubelshoot:
 if we keep label name as app: cake-app what will happens?
 our RS have label as app: cake-app so RS think this pods belong to my label so our desired state is only 3 so it found extra then it will delete our newly created POD.
 
-![alt text](images\image-1.png)
+![alt text](images/image-1.png)
 
 ### Step 3 - Display Labels
 
@@ -259,7 +259,7 @@ Show labels:
 
 Expected Output:
 
-![alt text](images\image-2.png)
+![alt text](images/image-2.png)
 
 Observation:
 
@@ -277,7 +277,7 @@ Annotations:
 Observation:
 
 Both Labels and Annotations are visible.
-![alt text](images\image-3.png)
+![alt text](images/image-3.png)
 
 ### Step 5 - Use Equality-Based Selector
 
@@ -287,7 +287,7 @@ Filter Pods:
 
 Expected Result:
 
-![alt text](images\image-4.png)
+![alt text](images/image-4.png)
 
 
 ### Step 6 - Add Another Pod
