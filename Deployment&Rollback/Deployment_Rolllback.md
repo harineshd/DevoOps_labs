@@ -263,7 +263,7 @@ Expected Output:
 ```text
 deployment.apps/cake-deployment created
 ```
-![alt text](images/image.png)
+![alt text](imaegs/image-1.png)
 ---
 
 ## Step 3 - Verify Deployment
@@ -280,7 +280,7 @@ Expected Output:
 NAME              READY   UP-TO-DATE   AVAILABLE
 cake-deployment   3/3     3            3
 ```
-![alt text](images/image.png)
+
 ---
 
 ## Step 4 - Verify ReplicaSet Creation
@@ -341,7 +341,7 @@ Observe:
 * Labels
 * Selectors
 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 
 ---
 
@@ -420,7 +420,7 @@ Only two Pods remain.
 
 ### Scalling up to 5 pods using decalrative way 
 
-![alt text](imagesimage-9.png)
+![alt text](images/image-9.png)
 ```bash
 kubectl apply -f cake-deployment.yaml
 ```
@@ -716,7 +716,7 @@ Open new terminal:
 
 Validate the applciation:
 
-![alt text](image-21.png)
+![alt text](images/image-21.png)
 
 ### Zero Downtime
 
