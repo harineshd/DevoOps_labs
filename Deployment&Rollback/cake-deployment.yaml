@@ -1,0 +1,40 @@
+apiVersion: apps/v1          # API version used for Deployment resources
+
+kind: Deployment            # Kubernetes object type (Deployment)
+
+metadata:                   # Information about the Deployment object
+
+  name: cake-deployment     # Name of the Deployment
+
+spec:                       # Desired state/configuration of the Deployment
+
+  replicas: 3             # Number of Pod replicas to maintain
+
+  selector:                # Deployment uses this selector to identify its Pods
+
+    matchLabels:           # Pods with matching labels are managed by this Deployment
+
+      app: cake-app        # Match Pods having label app=cake-app
+
+  template:               # Pod template used to create new Pods
+
+    metadata:             # Metadata for Pods created by this Deployment
+
+      labels:             # Labels assigned to each Pod
+
+        app: cake-app     # Pod label (must match selector.matchLabels)
+
+    spec:                 # Pod specification
+
+      containers:         # List of containers running inside the Pod
+
+      - name: cake-container     # Container name
+
+        image: cake-delivery:v1  # Docker image to run
+
+        imagePullPolicy: Never   # Do not pull image from registry
+                                 # Use local image available on node
+
+        ports:                   # Container ports to expose
+
+        - containerPort: 80      # Application listens on port 80 inside container
