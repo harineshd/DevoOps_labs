@@ -667,6 +667,17 @@ docker images
 ```kubectl set image deployment/cake-deployment \ cake-container=cake-delivery:v2```
 ![alt text](images/image-14.png)
 
+### Watch Rolling Update
+
+Open another terminal:
+
+```kubectl get pods -w```
+
+Observe:
+
+Old Pods Terminating
+New Pods Creating
+
 ### Verify Rollout
 ```kubectl rollout status deployment/cake-deployment```
 ![alt text](images/image-15.png)
@@ -688,6 +699,24 @@ kubectl rollout history deployment/cake-deployment
 Shows deployment versions.
 ![alt text](images/image-17.png)
 
+### Rollback Demo
+Rollback Deployment
+
+Open new terminal:
+
+```kubectl rollout undo deployment/cake-deployment```
+![alt text](images/image-18.png)
+
+### Verify Rollback Status
+```kubectl rollout status deployment/cake-deployment```
+
+![alt text](images/image-19.png)
+### Check the Revision
+![alt text](images/image-20.png)
+
+Validate the applciation:
+
+![alt text](image-21.png)
 
 ### Zero Downtime
 
@@ -695,6 +724,25 @@ Shows deployment versions.
 * Users experience no interruption
 * New Pods replace old Pods gradually
 
+## Commands Summary
+
+# Check History
+kubectl rollout history deployment/cake-deployment
+
+# Update Image
+kubectl set image deployment/cake-deployment cake-container=cake-delivery:v2
+
+# Watch Status
+kubectl rollout status deployment/cake-deployment
+
+# Rollback
+kubectl rollout undo deployment/cake-deployment
+
+# Verify Deployment
+kubectl describe deployment cake-deployment
+
+# Watch Pods
+kubectl get pods -w
 ---
 
 ## Verification Checklist
