@@ -64,7 +64,7 @@ variable "private_subnet_cidr" {
 
 variable "instance_type" {
 
-  default = "t2.micro"
+  default = "t3.micro"
 
 }
 
@@ -75,6 +75,6 @@ variable "ami_id" {
   type = string
 
   # Update this AMI if AWS releases a newer one
-  default = "ami-021a584b49225376d"
+  default = "ami-0d351f1b760a30161"
 
 }

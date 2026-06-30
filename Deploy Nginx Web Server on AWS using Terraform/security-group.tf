@@ -4,11 +4,11 @@
 
 resource "aws_security_group" "web_sg" {
 
-  name        = "${var.project_name}-web-sg"
+  name = "${var.project_name}-web-sg"
 
   description = "Allow SSH and HTTP"
 
-  vpc_id      = aws_vpc.main.id
+  vpc_id = aws_vpc.main.id
 
   ##########################################################
   # SSH
