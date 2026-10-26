@@ -1,0 +1,6 @@
+apiVersion: v2
+name: netflix-backend-api
+description: A Helm chart for Netflix Clone Backend REST API
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
