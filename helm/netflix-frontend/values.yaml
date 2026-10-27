@@ -1,8 +1,8 @@
 replicaCount: 2
 
 image:
-  repository: streamflix-frontend
-  tag: v1.0.0
+  repository: harinesh450/netflix-frontend
+  tag: b20eb4e
   pullPolicy: IfNotPresent
 
 service:
