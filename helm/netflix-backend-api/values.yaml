@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: harinesh450/netflix-backend
-  tag: b20eb4e
+  tag: 23227b4
   pullPolicy: IfNotPresent
 
 service:
