@@ -243,7 +243,7 @@ export default function App() {
             <div className="-mt-14 md:-mt-20 relative z-20 space-y-2">
               {/* Iconic Top 10 in India Today with Giant Stylized Numbers */}
               <TopTenRow
-                title="Top 10 Movies in India Today"
+                title="Top 10 Movies in India MoviesToday"
                 movies={movies}
                 onPlay={handlePlayMovie}
                 onMoreInfo={handleMoreInfo}
